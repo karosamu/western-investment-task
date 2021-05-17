@@ -51,10 +51,10 @@
     <h2 v-if="users.length === 0" class="empty-list-title text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:truncate">
       User list is empty
     </h2>
-    <div v-if="getPageCount > 1">
-      <span v-for="page in getPageCount" :key="page" class="page" :class="{ 'active-page': page === currentPage }" @click="currentPage = page">
+    <div v-if="getPageCount > 1" class="pagination-container">
+      <div v-for="page in getPageCount" :key="page" class="page" :class="{ 'active-page': page === currentPage }" @click="currentPage = page">
         {{ page }}
-      </span>
+      </div>
     </div>
     <ConfirmDialog
       v-if="modalOpen"
@@ -154,5 +154,10 @@ $primary-color: rgb(79, 70, 229);
   height: 100%;
   width: 100%;
   border-radius: 5px;
+}
+
+.pagination-container {
+  display: flex;
+  justify-content: center;
 }
 </style>
