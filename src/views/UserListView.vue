@@ -86,9 +86,9 @@ export default {
   computed: {
     ...mapState(["users"]),
     getPageCount() {
-      return Math.ceil(this.getSerchedUsers.length / this.pageSize);
+      return Math.ceil(this.getSearchedUsers.length / this.pageSize);
     },
-    getSerchedUsers() {
+    getSearchedUsers() {
       if (this.search) {
         return this.users.filter(
           (obj) =>
@@ -98,7 +98,7 @@ export default {
       } else return this.users;
     },
     getPaginatedUsers() {
-      return this.getSerchedUsers.slice(
+      return this.getSearchedUsers.slice(
         (this.currentPage - 1) * this.pageSize,
         this.currentPage * this.pageSize
       );
